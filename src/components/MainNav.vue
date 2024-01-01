@@ -30,6 +30,7 @@
           <profile-image v-else data-test="profile-image" />
         </div>
       </div>
+      <UserNavigationVue v-if="isLoggedIn" data-test="subnav" />
     </div>
   </header>
 </template>
@@ -37,12 +38,14 @@
 <script>
 import ActionButton from "./ActionButton.vue";
 import ProfileImage from "./ProfileImage.vue";
+import UserNavigationVue from "./UserNavigation.vue";
 
 export default {
   name: "MainNav",
   components: {
     ActionButton,
     ProfileImage,
+    UserNavigationVue,
   },
   data() {
     return {
