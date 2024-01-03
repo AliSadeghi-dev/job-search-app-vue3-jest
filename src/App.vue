@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import MainNav from "@/components/MainNav.vue";
-import HeroComponent from "./components/HeroComponent.vue";
+import MainNav from "@/components/Navigation/MainNav.vue";
+import HeroComponent from "./components/JobSearch/HeroComponent.vue";
 
 export default {
   name: "App",

@@ -1,4 +1,4 @@
-import UserNavigation from "@/components/UserNavigation.vue";
+import UserNavigation from "@/components/Navigation/UserNavigation.vue";
 import { mount } from "@vue/test-utils";
 
 describe("Subnav", () => {
