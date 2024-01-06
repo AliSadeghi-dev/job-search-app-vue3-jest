@@ -5,9 +5,10 @@
     <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
       <div class="relative flex items-center flex-1 h-full pr-3">
-        <label class="absolute left-0 -top-10">Role : {{ role }}</label>
+        <label class="absolute left-0 -top-10">Role</label>
         <TextInput
           placeholder="Software enginner"
+          :value="role"
           @changeinput="role = $event"
         />
       </div>
@@ -16,8 +17,12 @@
         >in</span
       >
       <div class="relative flex items-center flex-1 h-full pl-3">
-        <label class="absolute left-0 -top-10">Where? :{{ location }}</label>
-        <TextInput placeholder="Los Angeles" @changeinput="location = $event" />
+        <label class="absolute left-0 -top-10">Where?</label>
+        <TextInput
+          placeholder="Los Angeles"
+          :value="location"
+          @changeinput="location = $event"
+        />
       </div>
     </div>
     <ActionButton text="Search" type="secondary" class="rounded-r-3xl" />
