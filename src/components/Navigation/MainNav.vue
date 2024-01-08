@@ -17,7 +17,9 @@
               class="h-full ml-9 first:ml-0"
               data-test="main-nav-list-item"
             >
-              <a href="" class="flex items-center h-full">{{ item }}</a>
+              <router-link :to="item.url" class="flex items-center h-full">{{
+                item.text
+              }}</router-link>
             </li>
           </ul>
         </nav>
@@ -54,12 +56,12 @@ export default {
       company: "Bobo Careers",
       href: "https://www.google.com",
       menuItems: [
-        "Teams",
-        "Locations",
-        "Lift at Bobo Corp",
-        "How we hire",
-        "students",
-        "Jobs",
+        { text: "Teams", url: "/" },
+        { text: "Locations", url: "/" },
+        { text: "Lift at Bobo Corp", url: "/" },
+        { text: "How we hire", url: "/" },
+        { text: "students", url: "/" },
+        { text: "Jobs", url: "/jobs/results" },
       ],
       isLoggedIn: false,
     };
