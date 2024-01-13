@@ -1,22 +1,29 @@
 <template>
   <main class="flex-auto p-8 bg-brand-gray-2">
     <ol>
-      <JobListing />
-      <JobListing />
-      <JobListing />
-      <JobListing />
-      <JobListing />
+      <JobListing v-for="job in jobs" :key="job.id" :job="job" />
     </ol>
   </main>
 </template>
 
 <script>
+import axios from "axios";
+
 import JobListing from "./JobListing.vue";
 
 export default {
   name: "JobListings",
   components: {
     JobListing,
+  },
+  data() {
+    return {
+      jobs: [],
+    };
+  },
+  async mounted() {
+    const response = await axios.get("http://localhost:4000/jobs");
+    this.jobs = response.data;
   },
 };
 </script>
