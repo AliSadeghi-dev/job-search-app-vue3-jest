@@ -8,6 +8,35 @@
         :job="job"
       />
     </ol>
+    <div class="mt-8 mx-auto">
+      <div class="flex flex-row flex-nowrap">
+        <p class="text-sm flex-grow">Page {{ currnetPage }}</p>
+        <div class="flex items-center justify-center">
+          <router-link
+            v-if="previousPage"
+            :to="{
+              name: 'JobResults',
+              query: {
+                page: previousPage,
+              },
+            }"
+            class="mx-3 text-sm font-semibold text-brand-blue-1"
+            >Previous</router-link
+          >
+          <router-link
+            v-if="nextPage"
+            :to="{
+              name: 'JobResults',
+              query: {
+                page: nextPage,
+              },
+            }"
+            class="mx-3 text-sm font-semibold text-brand-blue-1"
+            >Next</router-link
+          >
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -27,8 +56,25 @@ export default {
     };
   },
   computed: {
+    previousPage() {
+      const previousPage = this.currnetPage - 1;
+      const firstPage = 1;
+      return previousPage >= firstPage ? previousPage : undefined;
+    },
+    nextPage() {
+      const nextPage = this.currnetPage + 1;
+      const maxPage = this.jobs.length / 10;
+      return nextPage <= maxPage ? nextPage : undefined;
+    },
+    currnetPage() {
+      const pageString = this.$route.query.page || "1";
+      return Number(pageString);
+    },
     jobList() {
-      return this.jobs.slice(0, 10);
+      const pageNumber = this.currnetPage;
+      const firstJobIndex = (pageNumber - 1) * 10;
+      const lastJobIndex = pageNumber * 10;
+      return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
   },
   async mounted() {
