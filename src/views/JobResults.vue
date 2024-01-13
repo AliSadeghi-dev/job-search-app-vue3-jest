@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <h1>{{ expriment }}</h1>
-    <h1 class="text-6xl font-bold">Job Results</h1>
+  <div class="flex flex-row flex-nowrap w-full">
+    <JobFilterSidebar />
+    <JobListings />
   </div>
 </template>
 
 <script>
+import JobFilterSidebar from "@/components/JobResults/JobFiltersSidebar/JobFilterSidebar.vue";
+import JobListings from "@/components/JobResults/JobListings.vue";
+
 export default {
   name: "JobResults",
-  computed: {
-    expriment() {
-      return "AFG";
-    },
+  components: {
+    JobFilterSidebar,
+    JobListings,
   },
 };
 </script>
