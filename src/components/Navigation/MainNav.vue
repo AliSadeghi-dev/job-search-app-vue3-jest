@@ -29,7 +29,7 @@
             data-test="login-button"
             text="Sign in"
             type="primary"
-            @click="handleClick"
+            @click="LOGIN_USER()"
           />
           <profile-image v-else data-test="profile-image" />
         </div>
@@ -43,6 +43,7 @@
 import ActionButton from "../Shared/ActionButton.vue";
 import ProfileImage from "./ProfileImage.vue";
 import UserNavigationVue from "./UserNavigation.vue";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "MainNav",
@@ -72,14 +73,20 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn;
-    },
+    // ...mapState({
+    //   // isLoggedIn: (state) => state.isLoggedIn,
+    //   // isLoggedIn: "isLoggedIn",
+    // }),
+    ...mapState(["isLoggedIn"]),
   },
   methods: {
-    handleClick() {
-      this.$store.commit("LOGIN_USER");
-    },
+    // handleClick() {
+    //   this.$store.commit(LOGIN_USER);
+    // },
+    // LOGIN_USER() {
+    //   this.$store.commit(LOGIN_USER);
+    // },
+    ...mapMutations(["LOGIN_USER"]),
   },
 };
 </script>
