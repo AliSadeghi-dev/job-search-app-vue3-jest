@@ -2,12 +2,50 @@
   <div
     class="flex flex-col p-4 bg-white border-r border-solid border-brand-gray-1 w-96"
   >
-    Job filter sidebar
+    <section class="pt-5">
+      <div class="flex flex-row justify-between">
+        <h3 class="my-4 text-base font-semibold">what do you want to do?</h3>
+        <div class="flex items-center text-sm">
+          <action-button text="Clear Filters" type="secondary" />
+        </div>
+      </div>
+      <Accordion header="Organizations">
+        <div class="mt-5">
+          <fieldset>
+            <ul class="flex flex-row flex-wrap">
+              <li class="w-1/2 h-8">
+                <input id="VueTube" type="checkbox" class="mr-3" />
+                <label for="VueTube">VueTube</label>
+              </li>
+              <li class="w-1/2 h-8">
+                <input id="Between Vue and Me" type="checkbox" class="mr-3" />
+                <label for="Between Vue and Me">Between Vue</label>
+              </li>
+              <li class="w-1/2 h-8">
+                <input id="Et Vue Brute" type="checkbox" class="mr-3" />
+                <label for="Et Vue Brute">Et Vue Brute</label>
+              </li>
+              <li class="w-1/2 h-8">
+                <input id="Vue and a half men" type="checkbox" class="mr-3" />
+                <label for="Vue and a half men">Vue and a half men</label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+      </Accordion>
+    </section>
   </div>
 </template>
 
 <script>
+import ActionButton from "@/components/Shared/ActionButton.vue";
+import Accordion from "@/components/Shared/Accordion.vue";
+
 export default {
   name: "JobFiltersSidebar",
+  components: {
+    ActionButton,
+    Accordion,
+  },
 };
 </script>
