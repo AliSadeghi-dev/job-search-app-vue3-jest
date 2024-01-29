@@ -57,7 +57,7 @@ export default {
       company: "Bobo Careers",
       href: "https://www.google.com",
       menuItems: [
-        { text: "Teams", url: "/" },
+        { text: "Teams", url: "/teams" },
         { text: "Locations", url: "/" },
         { text: "Lift at Bobo Corp", url: "/" },
         { text: "How we hire", url: "/" },
