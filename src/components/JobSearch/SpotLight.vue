@@ -1,7 +1,12 @@
 <template>
   <ul>
     <li v-for="spotlight in spotlights" :key="spotlight.id">
-      <slot></slot>
+      <slot
+        :img="spotlight.img"
+        :title="spotlight.title"
+        :description="spotlight.description"
+      >
+      </slot>
     </li>
   </ul>
 </template>
@@ -16,8 +21,7 @@ export default {
     };
   },
   async mounted() {
-    const baseUrl = process.env.VUE_APP_API_URL;
-    const url = `${baseUrl}/spotlights`;
+    const url = `http://localhost:4000/spotlights`;
     const response = await axios.get(url);
     this.spotlights = response.data;
   },
